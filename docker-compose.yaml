@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    command: "/usr/local/bin/rr serve"
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - .rr.yaml:/etc/rr.yaml:ro
+  db:
+    image: postgres:14.2-alpine3.15
+    command: postgres -c log_statement=all
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: sample
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
