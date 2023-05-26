@@ -73,6 +73,7 @@ $orm = CycleOrmFactory::create($manager, new Schema([
                 Relation::TARGET => Bid::class,
                 Relation::SCHEMA => [
                     Relation::CASCADE => false,
+                    Relation::NULLABLE => true,
                     Relation::INNER_KEY => 'code',
                     Relation::OUTER_KEY => 'bidDeliveryCode',
                 ],
