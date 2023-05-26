@@ -17,8 +17,8 @@ $manager = CycleDatabaseManagerFactory::create(
     port: 5432,
     user: 'user',
     password: 'password',
-    database: '',
-    schema: 'sample',
+    database: 'sample',
+    schema: 'public',
 );
 $orm = CycleOrmFactory::create($manager, new Schema([
     'bids' => [
